@@ -316,6 +316,28 @@ const converters = {
             };
         },
     },
+    command_on: {
+        cluster: 'genOnOff',
+        type: 'commandOn',
+        convert: (model, msg, publish, options) => {
+            return {action: 'on'};
+        },
+    },
+    command_off: {
+        cluster: 'genOnOff',
+        type: 'commandOff',
+        convert: (model, msg, publish, options) => {
+            return {action: 'off'};
+        },
+    },
+    command_step: {
+        cluster: 'genLevelCtrl',
+        type: 'commandStep',
+        convert: (model, msg, publish, options) => {
+            const direction = msg.data.stepmode === 1 ? 'down' : 'up';
+            return {action: `brightness_${direction}`};
+        },
+    },
 
     /**
      * Device specific converters, not recommended for re-use.
@@ -2341,20 +2363,6 @@ const converters = {
             return null;
         },
     },
-    eria_81825_on: {
-        cluster: 'genOnOff',
-        type: 'commandOn',
-        convert: (model, msg, publish, options) => {
-            return {action: 'on'};
-        },
-    },
-    eria_81825_off: {
-        cluster: 'genOnOff',
-        type: 'commandOff',
-        convert: (model, msg, publish, options) => {
-            return {action: 'off'};
-        },
-    },
     eria_81825_updown: {
         cluster: 'genLevelCtrl',
         type: 'commandStep',
@@ -3051,6 +3059,27 @@ const converters = {
             if (button) {
                 return {action: `${button}_${action}`};
             }
+        },
+    },
+    _100_462_31_W: {
+        cluster: 'lightingColorCtrl',
+        type: 'commandMoveToColorTemp',
+        convert: (model, msg, publish, options) => {
+            return {action: 'W'};
+        },
+    },
+    _100_462_31_P: {
+        cluster: 'lightingColorCtrl',
+        type: 'commandEnhancedMoveToHueAndSaturation',
+        convert: (model, msg, publish, options) => {
+            return {action: 'P'};
+        },
+    },
+    _100_462_31_scene: {
+        cluster: 'genScenes',
+        type: 'commandRecall',
+        convert: (model, msg, publish, options) => {
+            return {action: `scene_${msg.data.sceneid}`};
         },
     },
 

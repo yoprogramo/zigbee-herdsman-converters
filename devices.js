@@ -4059,6 +4059,15 @@ const devices = [
         fromZigbee: [fz.on_off],
         toZigbee: [tz.on_off],
     },
+    {
+        zigbeeModel: ['Neuhaus remote'],
+        model: '100.462.31',
+        vendor: 'Paul Neuhaus',
+        description: 'Q-REMOTE radio remote control, Smart Home',
+        supports: 'on, off, brightness up/down/stop, color temperature up/down, TODO: select RGB color, TODO: select group 1/2/3/all, TODO: select scene 1/2',
+        fromZigbee: [fz.command_step, fz.command_on, fz.command_off, fz._100_462_31_W, fz._100_462_31_P, fz._100_462_31_scene],
+        toZigbee: [],
+    },
 
     // iCasa
     {
@@ -4165,7 +4174,7 @@ const devices = [
         vendor: 'AduroSmart',
         description: 'ERIA smart wireless dimming switch',
         supports: 'on, off, up, down',
-        fromZigbee: [fz.eria_81825_on, fz.eria_81825_off, fz.eria_81825_updown],
+        fromZigbee: [fz.command_on, fz.command_off, fz.eria_81825_updown],
         toZigbee: [],
         meta: {configureKey: 1},
         configure: async (device, coordinatorEndpoint) => {
