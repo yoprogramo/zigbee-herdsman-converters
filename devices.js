@@ -1593,7 +1593,7 @@ const devices = [
         },
     },
     
-    // LED HISPANIA
+    // GREEBLE
     {
         zigbeeModel: ['JZ-Z3.0-DIM'],
         model: 'JZA60-K2-DIM',
