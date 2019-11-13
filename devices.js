@@ -1597,7 +1597,7 @@ const devices = [
     {
         zigbeeModel: ['JZ-Z3.0-DIM'],
         model: 'JZA60-K2-DIM',
-        vendor: 'Led Hispania',
+        vendor: 'GREEBLE',
         description: '8.5W 806lm 2700K',
         extend: generic.light_onoff_brightness,
     },
