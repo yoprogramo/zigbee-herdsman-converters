@@ -1602,6 +1602,19 @@ const devices = [
         extend: generic.light_onoff_brightness,
     },
 
+    // OTRO
+    {
+        zigbeeModel: ['FNB56-ZRC06FB1.8'], 
+        model: 'FNB56-ZRC06FB1.8', 
+        vendor: 'Led Hispania', 
+        description: 'SOS and three aditional buttons ', 
+        supports: 'action', 
+        fromZigbee: [
+            fz.heiman_smart_controller_armmode, fz.ledhispania_statuschange
+        ], 
+        toZigbee: [], 
+    },
+
     // Custom devices (DiY)
     {
         zigbeeModel: ['lumi.router'],

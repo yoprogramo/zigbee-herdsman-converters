@@ -3180,6 +3180,13 @@ const converters = {
         type: ['attributeReport', 'readResponse'],
         convert: (model, msg, publish, options) => null,
     },
+    ledhispania_statuschange: {
+        cluster: 'ssIasZone',
+        type: 'commandStatusChangeNotification',
+        convert: (model, msg, publish, options) => {
+            return {action: 'emergency'}
+        },
+    },
 };
 
 module.exports = converters;
